@@ -5,7 +5,7 @@ public class d23question1_technical {
     
     public static String HashBack(String a){
         String Hrm= "";
-        int j =0;
+        int j = 0;
         for(int i=0;i<a.length();i++){
             if(a.charAt(i)!='#'){Hrm=Hrm+a.charAt(i);j++;}
             else{
