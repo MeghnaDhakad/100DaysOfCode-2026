@@ -1,0 +1,28 @@
+#Write an efficient function to find the minimum number of conference rooms required so no two overlapping meetings share a room.
+#Input: intervals = [[1, 5], [2, 6], [4, 8], [9, 10]]. Output: 3.
+def min_rooms(intervals):
+    if not intervals:
+        return 0
+    starts = sorted(i[0] for i in intervals)
+    ends = sorted(i[1] for i in intervals)
+    rooms = 0
+    max_rooms = 0
+    s = e = 0
+    n = len(intervals)
+    while s < n:
+        if starts[s] < ends[e]:
+            rooms += 1
+            max_rooms = max(max_rooms, rooms)
+            s += 1
+        else:
+            rooms -= 1
+            e += 1
+    return max_rooms
+
+n = int(input("Enter number of meetings: "))
+intervals = []
+print("Enter start and end time of each meeting:")
+for _ in range(n):
+    start, end = map(int, input().split())
+    intervals.append([start, end])
+print("Minimum conference rooms required:", min_rooms(intervals))
