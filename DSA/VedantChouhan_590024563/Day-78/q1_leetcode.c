@@ -1,11 +1,10 @@
-//q2.
 #include <stdio.h>
 
-int findSingle(int nums[], int n) {
+int singleNumber(int nums[], int n) {
     int result = 0;
 
     for (int i = 0; i < n; i++) {
-        result = result ^ nums[i];
+        result ^= nums[i];
     }
 
     return result;
@@ -24,9 +23,9 @@ int main() {
         scanf("%d", &nums[i]);
     }
 
-    int answer = findSingle(nums, n);
+    int answer = singleNumber(nums, n);
 
-    printf("Element appearing once: %d\n", answer);
+    printf("Single number: %d\n", answer);
 
     return 0;
 }
