@@ -1,12 +1,11 @@
-int numberOfSteps(int num) {
-    int steps = 0;
-    while (num > 0) {
-        if (num & 1)
-            num -= 1;
-        else
-            num >>= 1;
+int hammingDistance(int x, int y) {
+    int xor = x ^ y;
+    int count = 0;
 
-        steps++;
+    while (xor) {
+        count += xor & 1;
+        xor >>= 1;
     }
-    return steps;
+
+    return count;
 }

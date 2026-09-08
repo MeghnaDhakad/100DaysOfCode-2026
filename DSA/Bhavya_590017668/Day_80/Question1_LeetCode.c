@@ -1,11 +1,8 @@
-int hammingDistance(int x, int y) {
-    int xor = x ^ y;
+int hammingWeight(int n) {
     int count = 0;
-
-    while (xor) {
-        count += xor & 1;
-        xor >>= 1;
+    while (n) {
+        n &= (n - 1);
+        count++;
     }
-
     return count;
 }
